@@ -1,23 +1,36 @@
 #!/bin/bash
 
+# List of filename patterns to check
+PATTERNS=("BTFL_cli_AIR65_*.txt" "BTFL_cli_backup_AIR65_*.txt")
 
-# Find the backup file matching the pattern
-SOURCE_FILE=$(find . -maxdepth 1 -type f -name "BTFL_cli_backup_AIR65_*.txt" | head -n 1)
+for PATTERN in "${PATTERNS[@]}"; do
+  # Find the first file matching the pattern
+  SOURCE_FILE=$(find . -maxdepth 1 -type f -name "$PATTERN" | head -n 1)
 
-if [ -z "$SOURCE_FILE" ]; then
-  echo "No file matching BTFL_cli_backup_AIR65_*.txt found"
-  exit 1
-fi
+  if [ -z "$SOURCE_FILE" ]; then
+    echo "No file found for pattern '$PATTERN' — skipping."
+    continue
+  fi
 
-TARGET_FILE="BTFL_cli_backup_AIR65.txt"
+  # Determine target file name based on pattern
+  if [[ "$PATTERN" == "BTFL_cli_AIR65_"* ]]; then
+    TARGET_FILE="BTFL_cli_AIR65.txt"
+  elif [[ "$PATTERN" == "BTFL_cli_backup_AIR65_"* ]]; then
+    TARGET_FILE="BTFL_cli_backup_AIR65.txt"
+  else
+    echo "Unknown pattern '$PATTERN' — skipping."
+    continue
+  fi
 
-# Overwrite the target file if it exists
-if [ -f "$TARGET_FILE" ]; then
-  echo "Overwriting existing $TARGET_FILE"
-  rm -f "$TARGET_FILE"
-fi
+  echo "Renaming: $SOURCE_FILE → $TARGET_FILE"
 
-# Rename the file
-mv "$SOURCE_FILE" "$TARGET_FILE" || exit 1
+  # Overwrite if the target file already exists
+  [ -f "$TARGET_FILE" ] && rm -f "$TARGET_FILE"
 
-echo "Done: '$TARGET_FILE'"
+  mv "$SOURCE_FILE" "$TARGET_FILE" || {
+    echo "Failed to rename $SOURCE_FILE"
+    exit 1
+  }
+done
+
+echo "Done."    
