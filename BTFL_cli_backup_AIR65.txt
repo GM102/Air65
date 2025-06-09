@@ -106,6 +106,7 @@ profile 0
 
 # profile 0
 set profile_name = 1219S
+set crash_recovery = ON
 set p_pitch = 71
 set i_pitch = 101
 set d_pitch = 60
