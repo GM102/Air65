@@ -120,6 +120,7 @@ set p_yaw = 61
 set i_yaw = 87
 set f_yaw = 0
 set angle_p_gain = 100
+set angle_limit = 70
 set d_min_roll = 41
 set d_min_pitch = 56
 set d_max_gain = 20
