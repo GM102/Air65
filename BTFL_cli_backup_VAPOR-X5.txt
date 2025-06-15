@@ -40,7 +40,8 @@ beacon RX_SET
 # aux
 aux 0 0 0 1700 2100 0 0
 aux 1 1 1 1700 2100 0 0
-aux 2 13 2 1700 2100 0 0
+aux 2 27 3 1300 2100 0 0
+aux 3 13 2 1300 2100 0 0
 
 # vtxtable
 vtxtable bands 5
@@ -54,6 +55,13 @@ vtxtable powerlevels 4
 vtxtable powervalues 25 200 600 1600
 vtxtable powerlabels 25 200 600 MAX
 
+# rxfail
+rxfail 0 s 1500
+rxfail 1 s 1500
+rxfail 2 s 1500
+rxfail 3 s 1250
+rxfail 5 s 2000
+
 # master
 set gyro_lpf1_static_hz = 0
 set gyro_lpf2_static_hz = 750
@@ -66,11 +74,14 @@ set blackbox_sample_rate = 1/8
 set dshot_bidir = ON
 set motor_pwm_protocol = DSHOT300
 set motor_output_reordering = 3,2,1,0,4,5,6,7
+set failsafe_procedure = GPS-RESCUE
 set beeper_dshot_beacon_tone = 3
 set small_angle = 180
 set gps_sbas_mode = AUTO
 set gps_ublox_use_galileo = ON
 set gps_set_home_point_once = ON
+set gps_rescue_return_alt = 50
+set gps_rescue_throttle_hover = 1250
 set deadband = 2
 set yaw_deadband = 2
 set pid_process_denom = 2
@@ -79,13 +90,13 @@ set osd_rssi_dbm_alarm = -105
 set osd_vbat_pos = 2392
 set osd_link_quality_pos = 2092
 set osd_rssi_dbm_pos = 2099
-set osd_tim_2_pos = 2528
+set osd_tim_2_pos = 2432
 set osd_flymode_pos = 2157
 set osd_g_force_pos = 2265
 set osd_throttle_pos = 2329
 set osd_vtx_channel_pos = 2081
 set osd_crosshairs_pos = 377
-set osd_ah_sbar_pos = 6414
+set osd_ah_sbar_pos = 270
 set osd_ah_pos = 6286
 set osd_craft_name_pos = 372
 set osd_gps_speed_pos = 2304
