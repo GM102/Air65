@@ -25,7 +25,7 @@ feature OSD
 feature ESC_SENSOR
 
 # serial
-serial 0 8192 115200 57600 0 115200
+serial 0 131073 115200 57600 0 115200
 serial 1 64 115200 57600 0 115200
 serial 3 2 115200 57600 0 115200
 serial 5 1024 115200 57600 0 115200
@@ -87,39 +87,36 @@ set yaw_deadband = 2
 set pid_process_denom = 2
 set simplified_gyro_filter_multiplier = 150
 set osd_rssi_dbm_alarm = -105
-set osd_vbat_pos = 2392
-set osd_link_quality_pos = 2092
-set osd_rssi_dbm_pos = 2099
-set osd_tim_2_pos = 2432
-set osd_flymode_pos = 2157
-set osd_g_force_pos = 2265
-set osd_throttle_pos = 2329
-set osd_vtx_channel_pos = 2081
+set osd_vbat_pos = 448
+set osd_link_quality_pos = 3078
+set osd_rssi_dbm_pos = 3085
+set osd_tim_2_pos = 2336
+set osd_flymode_pos = 2561
+set osd_g_force_pos = 2368
+set osd_throttle_pos = 2432
+set osd_vtx_channel_pos = 2076
 set osd_crosshairs_pos = 377
 set osd_ah_sbar_pos = 270
-set osd_ah_pos = 6286
+set osd_ah_pos = 6362
 set osd_craft_name_pos = 372
 set osd_gps_speed_pos = 2304
 set osd_gps_lon_pos = 2049
 set osd_gps_lat_pos = 2063
-set osd_gps_sats_pos = 2105
-set osd_home_dir_pos = 2318
-set osd_home_dist_pos = 2296
+set osd_gps_sats_pos = 2081
+set osd_home_dir_pos = 2394
+set osd_home_dist_pos = 2400
+set osd_flight_dist_pos = 2240
 set osd_altitude_pos = 2272
 set osd_debug_pos = 293
-set osd_warnings_pos = 14729
-set osd_avg_cell_voltage_pos = 2360
-set osd_stat_bitmask = 149308
-set osd_displayport_device = AUTO
-set osd_canvas_width = 30
-set osd_canvas_height = 13
+set osd_warnings_pos = 14902
+set osd_avg_cell_voltage_pos = 2464
+set osd_stat_bitmask = 4607804
 set debug_mode = GYRO_SCALED
 set vtx_band = 5
 set vtx_channel = 1
 set vtx_power = 4
 set vtx_low_power_disarm = UNTIL_FIRST_ARM
 set vtx_freq = 5658
-set vcd_video_system = AUTO
 set craft_name = Vapor-X5
 set pilot_name = Vapor-X5
 
